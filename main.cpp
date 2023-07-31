@@ -7,9 +7,9 @@
 using namespace std;
 #include "Node.hpp"
 #include "edge.hpp"
-#include"Galaxy.hpp"
-#include"ConcreteNode.hpp"
-#include"Universe.hpp"
+#include "Galaxy.hpp"
+#include "ConcreteNode.hpp"
+#include "Universe.hpp"
 
 int main()
 {
@@ -125,7 +125,7 @@ int main()
             cout << "Label B: " << labelB << endl;
             int nodeIdB = targetGalaxyB->getNodeId(labelB);
 
-            universe.addEdge(targetGalaxyA->getID(), targetGalaxyB->getID(), nodeIdA, nodeIdB, stoi(cost));
+            universe.addEdge(targetGalaxyA->getID() - 1, targetGalaxyB->getID() - 1, nodeIdA - 1, nodeIdB - 1, stoi(cost));
         }
 
         // FIND AS4.W->AS4.X
@@ -147,7 +147,7 @@ int main()
             cout << "Invalid Command!" << endl;
         }
 
-        cout << "Enter the command*: ";
+        cout << "Enter the command: ";
         getline(cin, input);
     }
     return 0;
