@@ -4,6 +4,7 @@
 #include <vector>
 #include "Edge.hpp" // Include the header file where the Edge class is defined
 class Edge;
+
 class Node
 {
 private:

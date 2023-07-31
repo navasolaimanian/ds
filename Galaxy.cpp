@@ -11,6 +11,7 @@ void Galaxy::addNode(Node *node)
     for (const auto &g : nodes)
     {
         cout << "node Name: " << g->getName() << endl;
+
     }
 }
 int Galaxy::getNodeId(const string node)
