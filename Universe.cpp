@@ -4,10 +4,10 @@ using namespace std;
 #include"Galaxy.hpp"
 #include"Edge.hpp"
 
-Universe::Universe() {}
+// Universe::Universe() {}
 
 
-void Universe::addGalaxy(Galaxy &galaxy)
+void Universe::addGalaxy(const Galaxy &galaxy)
 {
     galaxies.push_back(galaxy);
     cout << galaxy.getName() << " add to galaxies" << endl;
@@ -38,10 +38,9 @@ bool Universe::getGalaxyId(const int id)
     return false;
 }
 
-// اضافه کردن یال بین دو نود به کهکشان مورد نظر
 void Universe::addEdge(int galaxyIdA, int galaxyIdB, int nodeId1, int nodeId2, int weight)
 {
     
-    // galaxies[galaxyIdA].nodes[nodeId1]->neighbors.push_back(Edge(nodeId1, nodeId2, weight));
-    // galaxies[galaxyIdB].nodes[nodeId1]->neighbors.push_back(Edge(nodeId1, nodeId2, weight));
+    galaxies[galaxyIdA].nodes[nodeId1]->neighbors.push_back(Edge(nodeId1, nodeId2, weight));
+    galaxies[galaxyIdB].nodes[nodeId1]->neighbors.push_back(Edge(nodeId1, nodeId2, weight));
 }

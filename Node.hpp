@@ -1,9 +1,8 @@
-#ifndef EDGE_H
-#define EDGE_H
+#ifndef NODE_H
+#define NODE_H
 #include <iostream>
 #include <vector>
-#include "Edge.hpp" // Include the header file where the Edge class is defined
-class Edge;
+#include"Edge.hpp"
 
 class Node
 {
@@ -21,6 +20,5 @@ public:
     void setName(std::string);
     bool getBG();
     void setBG(bool);
-    virtual void findShortestPath(int destinationNodeId) = 0;
 };
 #endif

@@ -14,7 +14,7 @@ void Galaxy::addNode(Node *node)
 
     }
 }
-int Galaxy::getNodeId(const string node)
+int Galaxy::getNodeId(string node)
 {
 
     for (size_t i = 0; i < nodes.size(); ++i)
@@ -24,8 +24,9 @@ int Galaxy::getNodeId(const string node)
             return nodes[i]->getID();
         }
     }
+    return -1;
 }
-string Galaxy::getName()
+string Galaxy::getName() const
 {
     return name;
 }

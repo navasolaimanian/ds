@@ -2,7 +2,7 @@
 #define GALAXY_H
 #include <iostream>
 #include <vector>
-class Node;
+#include"Node.hpp"
 
 class Galaxy
 {
@@ -17,8 +17,8 @@ public:
 
     // افزودن نود به کهکشان
     void addNode(Node *);
-    int getNodeId(const std::string);
-    std::string getName();
+    int getNodeId(std::string);
+    std::string getName() const;
     void setName(std::string);
     int getID();
     void setID(int);

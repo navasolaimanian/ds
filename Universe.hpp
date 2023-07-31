@@ -1,9 +1,9 @@
-#ifndef EDGE_H
-#define EDGE_H
+#ifndef UNIVERSE_H
+#define UNIVERSE_H
 #include<vector>
 #include<iostream>
-class Galaxy;
-class Edge;
+#include"Galaxy.hpp"
+#include"Edge.hpp"
 class Universe
 {
 public:
@@ -11,7 +11,7 @@ public:
 
     Universe() {}
 
-    void addGalaxy(Galaxy &);
+    void addGalaxy(const Galaxy &);
 
     Galaxy *getGalaxyByName(const std::string &);
     bool getGalaxyId(const int);
