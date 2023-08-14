@@ -9,13 +9,15 @@ private:
     int node2Id; // The ID of the second node connected by the edge
     int weight;  // The weight/cost of the edge
 public:
-    // cunstructor
-    Edge(int , int , int );
-    int getNode1ID();
-    void setNode1ID(int);
-    int getNode2ID();
-    void setNode2ID(int);
+    Edge(int, int, int); // cunstructor
 
+    int getNode1ID(); // get id of first node
+
+    void setNode1ID(int); // set id of first node
+
+    int getNode2ID(); // get id of second node
+
+    void setNode2ID(int); // set id of second node
 };
 
 #endif

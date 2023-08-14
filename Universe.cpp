@@ -1,11 +1,7 @@
-
 #include "Universe.hpp"
 using namespace std;
-#include"Galaxy.hpp"
-#include"Edge.hpp"
-
-// Universe::Universe() {}
-
+#include "Galaxy.hpp"
+#include "Edge.hpp"
 
 void Universe::addGalaxy(const Galaxy &galaxy)
 {
@@ -38,21 +34,21 @@ bool Universe::getGalaxyId(const int id)
     return false;
 }
 
-
 void Universe::addEdge(int galaxyIdA, int galaxyIdB, int nodeId1, int nodeId2, int weight)
 {
+    // check if id of galaxies are valid
     if (galaxyIdA >= galaxies.size() || galaxyIdB >= galaxies.size())
     {
         cout << "Invalid galaxy ID." << endl;
         return;
     }
-
+    // check if id of nodes are valid
     if (nodeId1 >= galaxies[galaxyIdA].nodes.size() || nodeId2 >= galaxies[galaxyIdB].nodes.size())
     {
         cout << "Invalid node ID." << endl;
         return;
     }
-
+    // create Edge and push it into neighbors of node of galaxy
     galaxies[galaxyIdA].nodes[nodeId1]->neighbors.push_back(Edge(nodeId1, nodeId2, weight));
     galaxies[galaxyIdB].nodes[nodeId2]->neighbors.push_back(Edge(nodeId2, nodeId1, weight));
 }

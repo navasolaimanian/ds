@@ -1,9 +1,9 @@
-#include"Galaxy.hpp"
-#include"Node.hpp"
+#include "Galaxy.hpp"
+#include "Node.hpp"
 #include <iostream>
 using namespace std;
-Galaxy::Galaxy(const string Name, int id) : name(Name), id(id) {}
 
+Galaxy::Galaxy(const string Name, int id) : name(Name), id(id) {}
 
 void Galaxy::addNode(Node *node)
 {
@@ -11,7 +11,6 @@ void Galaxy::addNode(Node *node)
     for (const auto &g : nodes)
     {
         cout << "node Name: " << g->getName() << endl;
-
     }
 }
 int Galaxy::getNodeId(string node)

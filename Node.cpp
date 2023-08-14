@@ -1,6 +1,7 @@
 #include "Node.hpp"
 #include <iostream>
 using namespace std;
+
 Node::Node(int id, bool isBorderGateway, string name) : id(id), isBorderGateway(isBorderGateway), name(name) {}
 
 int Node::getID()

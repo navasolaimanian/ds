@@ -4,20 +4,19 @@
 #include <algorithm>
 #include <limits>
 #include <regex>
-using namespace std;
 #include "Node.hpp"
 #include "edge.hpp"
 #include "Galaxy.hpp"
 #include "ConcreteNode.hpp"
 #include "Universe.hpp"
+using namespace std;
 
 int main()
 {
-
     Universe universe;
 
     string input;
-    cout << "Welcom \nfor creating galaxy enter CREATE (AS1: Galaxy, {id:1}) \nfor creating node enter CREATE (A:Node, {id:'1', Type:'BG', Galaxy:AS1}) \nfor creating road enter CREATE (AS1.A) – [:ROAD {cost:50}] –> (AS1.B)\n";
+    cout << "Welcom \nfor creating galaxy enter CREATE (AS1: Galaxy, {id:1}) \nfor creating node enter CREATE (A:Node, {id:'1', Type:'BG', Galaxy:AS1}) \nfor creating road enter CREATE (AS1.A) - [:ROAD {cost:50}] -> (AS1.B)\n for exit of program enter exit";
     cout << "Enter the command: ";
     getline(cin, input);
 
@@ -40,6 +39,7 @@ int main()
         {
             string galaxyName = matches[1].str();
             int galaxyId = stoi(matches[2].str());
+            //if there is galaxy with this name and id user cant create it
             Galaxy *targetGalaxy = universe.getGalaxyByName(galaxyName);
             bool isgalaxyId = universe.getGalaxyId(galaxyId);
             if (targetGalaxy || isgalaxyId)
@@ -68,6 +68,7 @@ int main()
             cout << "Node Galaxy: " << nodeGalaxy << endl;
 
             bool type = (nodeType == "BG") ? true : false;
+            //if nodes galaxy exist can add node to it
             Galaxy *targetGalaxy = universe.getGalaxyByName(nodeGalaxy);
 
             if (targetGalaxy)
@@ -82,6 +83,7 @@ int main()
                 {
                     for (const auto &n : targetGalaxy->nodes)
                     {
+                        //if node with this name and id exist it can not add to nodes
                         if (n->getName() == nodeName || n->getID() == stoi(nodeId))
                         {
                             cout << "there is node with this name/id in this galaxy" << endl;
@@ -89,7 +91,6 @@ int main()
                         }
                         else
                         {
-                            cout << "noooo";
                             Node *newNode = new ConcreteNode(stoi(nodeId), type, nodeName);
                             targetGalaxy->addNode(newNode);
                         }

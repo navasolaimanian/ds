@@ -2,26 +2,30 @@
 #define GALAXY_H
 #include <iostream>
 #include <vector>
-#include"Node.hpp"
+#include "Node.hpp"
 
 class Galaxy
 {
 private:
-    std::string name;
-    int id;
+    std::string name; // name of galaxy
+    int id;           // id of galaxy
 
 public:
-    std::vector<Node *> nodes; // لیست نود‌های کهکشان
+    std::vector<Node *> nodes; // nodes of galaxy
 
-    Galaxy(const std::string, int);
+    Galaxy(const std::string, int); // constructor
 
-    // افزودن نود به کهکشان
-    void addNode(Node *);
-    int getNodeId(std::string);
-    std::string getName() const;
-    void setName(std::string);
-    int getID();
-    void setID(int);
+    void addNode(Node *); // add node to nodes of galaxy
+
+    int getNodeId(std::string); // return id of nodes name
+
+    std::string getName() const; // get name of galaxy
+
+    void setName(std::string); // set name of galaxy
+
+    int getID(); // get id of galaxy
+
+    void setID(int); // set id of galaxy
 };
 
 #endif

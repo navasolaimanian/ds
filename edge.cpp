@@ -1,12 +1,7 @@
-#include"Edge.hpp"
+#include "Edge.hpp"
 
-// Constructor implementation
-Edge::Edge(int node1Id, int node2Id, int weight)
-    : node1Id(node1Id), node2Id(node2Id), weight(weight)
-{
-}
+Edge::Edge(int node1Id, int node2Id, int weight) : node1Id(node1Id), node2Id(node2Id), weight(weight) {}
 
-// Getter and setter function implementations
 int Edge::getNode1ID()
 {
     return node1Id;
