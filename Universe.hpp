@@ -3,7 +3,7 @@
 #include <vector>
 #include <iostream>
 #include "Galaxy.hpp"
-#include "Edge.hpp"
+#include "edge.hpp"
 
 class Universe
 {

@@ -1,7 +1,7 @@
 #include "Universe.hpp"
 using namespace std;
 #include "Galaxy.hpp"
-#include "Edge.hpp"
+#include "edge.hpp"
 
 void Universe::addGalaxy(const Galaxy &galaxy)
 {

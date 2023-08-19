@@ -1,4 +1,4 @@
-#include "Edge.hpp"
+#include "edge.hpp"
 #include <iostream>
 
 using namespace std;

@@ -1,6 +1,8 @@
 #ifndef EDGE_H
 #define EDGE_H
 
+#include <iostream>
+
 // class of edge for 2 node
 class Edge
 {
