@@ -126,7 +126,7 @@ int main()
             cout << "Label B: " << labelB << endl;
             int nodeIdB = targetGalaxyB->getNodeId(labelB);
 
-            universe.addEdge(targetGalaxyA->getID() - 1, targetGalaxyB->getID() - 1, nodeIdA - 1, nodeIdB - 1, stoi(cost));
+            universe.addEdge(targetGalaxyA->getID() - 1, targetGalaxyB->getID() - 1, nodeIdA - 1, nodeIdB - 1, stoi(cost), labelA, labelB);
         }
 
         // FIND AS4.W->AS4.X
@@ -141,7 +141,15 @@ int main()
             cout << "Node B: " << nodeB << endl;
             cout << "a: " << na << endl;
             cout << "B: " << nb << endl;
-            // universe.findShortestPath(0, 0, 1, 3);
+            if (nodeA == nodeB)
+            {
+                Galaxy * targetGalaxy = universe.getGalaxyByName(nodeA);
+                targetGalaxy->findPath(na, nb); 
+            } else
+            {
+                universe.findPath(nodeA, na, nodeB, nb);
+            }
+            
         }
         else
         {
@@ -153,3 +161,5 @@ int main()
     }
     return 0;
 }
+
+// g++ --std=c++17 main.cpp edge.cpp Galaxy.cpp Node.cpp Universe.cpp ConcreteNode.cpp -o app
