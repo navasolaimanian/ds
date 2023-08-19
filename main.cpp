@@ -11,6 +11,7 @@
 #include "Universe.hpp"
 using namespace std;
 
+// g++ .\main.cpp .\Edge.cpp .\ConcreteNode.cpp .\Universe.cpp .\Galaxy.cpp .\Node.cpp -o app
 int main()
 {
     Universe universe;
@@ -39,7 +40,7 @@ int main()
         {
             string galaxyName = matches[1].str();
             int galaxyId = stoi(matches[2].str());
-            //if there is galaxy with this name and id user cant create it
+            // if there is galaxy with this name and id user cant create it
             Galaxy *targetGalaxy = universe.getGalaxyByName(galaxyName);
             bool isgalaxyId = universe.getGalaxyId(galaxyId);
             if (targetGalaxy || isgalaxyId)
@@ -68,7 +69,7 @@ int main()
             cout << "Node Galaxy: " << nodeGalaxy << endl;
 
             bool type = (nodeType == "BG") ? true : false;
-            //if nodes galaxy exist can add node to it
+            // if nodes galaxy exist can add node to it
             Galaxy *targetGalaxy = universe.getGalaxyByName(nodeGalaxy);
 
             if (targetGalaxy)
@@ -83,7 +84,7 @@ int main()
                 {
                     for (const auto &n : targetGalaxy->nodes)
                     {
-                        //if node with this name and id exist it can not add to nodes
+                        // if node with this name and id exist it can not add to nodes
                         if (n->getName() == nodeName || n->getID() == stoi(nodeId))
                         {
                             cout << "there is node with this name/id in this galaxy" << endl;
