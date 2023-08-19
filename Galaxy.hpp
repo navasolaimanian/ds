@@ -30,6 +30,8 @@ public:
     Node * getNode(int);
 
     Node * getNodeByName(std::string);
+
+    std::vector<std::string> findPath(std::string, std::string);
 };
 
 #endif
