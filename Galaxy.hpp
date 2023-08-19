@@ -26,6 +26,10 @@ public:
     int getID(); // get id of galaxy
 
     void setID(int); // set id of galaxy
+
+    Node * getNode(int);
+
+    Node * getNodeByName(std::string);
 };
 
 #endif

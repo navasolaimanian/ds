@@ -41,3 +41,20 @@ void Galaxy::setID(int galaxyId)
 {
     id = galaxyId;
 }
+
+Node* Galaxy::getNode(int id)
+{
+    return nodes[id - 1];
+}
+
+Node * Galaxy::getNodeByName(string name)
+{
+    for(auto i : nodes)
+    {
+        if (i->getName() == name)
+        {
+            return i;
+        }
+    }
+    cout << "node not found!" << endl;
+}
