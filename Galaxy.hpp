@@ -27,11 +27,13 @@ public:
 
     void setID(int); // set id of galaxy
 
-    Node * getNode(int);
+    Node * getNode(int); // get node by id
 
-    Node * getNodeByName(std::string);
+    Node * getNodeByName(std::string); // get node by name
 
-    std::vector<std::string> findPath(std::string, std::string);
+    std::vector<std::string> findPath(std::string, std::string); // find shortest path between 2 node
+
+    std::vector<std::string> findPathToBG(std::string); // find shortest path to a bg node
 };
 
 #endif
