@@ -3,7 +3,7 @@
 #include <vector>
 #include <iostream>
 #include "Galaxy.hpp"
-#include "Edge.hpp"
+#include "edge.hpp"
 
 class Universe
 {
@@ -16,6 +16,8 @@ public:
 
     bool getGalaxyId(const int); // returning true if there is galaxy with this id
 
-    void addEdge(int, int, int, int, int); // adding edge between to node
+    void addEdge(int , int , int , int , int, std::string, std::string); // adding edge between to node
+
+    void findPath(std::string, std::string, std::string, std::string);
 };
 #endif

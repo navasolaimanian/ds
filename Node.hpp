@@ -2,7 +2,7 @@
 #define NODE_H
 #include <iostream>
 #include <vector>
-#include "Edge.hpp"
+#include "edge.hpp"
 
 class Node
 {
