@@ -7,17 +7,15 @@
 #include "Node.hpp"
 #include "edge.hpp"
 #include "Galaxy.hpp"
-#include "ConcreteNode.hpp"
 #include "Universe.hpp"
 using namespace std;
 
-// g++ .\main.cpp .\Edge.cpp .\ConcreteNode.cpp .\Universe.cpp .\Galaxy.cpp .\Node.cpp -o app
 int main()
 {
     Universe universe;
 
     string input;
-    cout << "Welcom \nfor creating galaxy enter CREATE (AS1: Galaxy, {id:1}) \nfor creating node enter CREATE (A:Node, {id:'1', Type:'BG', Galaxy:AS1}) \nfor creating road enter CREATE (AS1.A) - [:ROAD {cost:50}] -> (AS1.B)\n for exit of program enter exit";
+    cout << "Welcom \nfor creating galaxy enter CREATE (AS1: Galaxy, {id:1}) \nfor creating node enter CREATE (A:Node, {id:'1', Type:'BG', Galaxy:AS1}) \nfor creating road enter CREATE (AS1.A) - [:ROAD {cost:50}] -> (AS1.B)\nfor exit of program enter exit\n";
     cout << "Enter the command: ";
     getline(cin, input);
 
@@ -77,7 +75,7 @@ int main()
 
                 if (targetGalaxy->nodes.size() == 0)
                 {
-                    Node *newNode = new ConcreteNode(stoi(nodeId), type, nodeName);
+                    Node *newNode = new Node(stoi(nodeId), type, nodeName);
                     targetGalaxy->addNode(newNode);
                 }
                 else
@@ -92,7 +90,7 @@ int main()
                         }
                         else
                         {
-                            Node *newNode = new ConcreteNode(stoi(nodeId), type, nodeName);
+                            Node *newNode = new Node(stoi(nodeId), type, nodeName);
                             targetGalaxy->addNode(newNode);
                         }
                     }
@@ -133,22 +131,22 @@ int main()
         // FIND AS4.W->AS4.X
         else if (regex_search(input, matches, findPattern) && matches.size() == 5)
         {
-            string nodeA = matches[1];
-            string na = matches[2];
-            string nodeB = matches[3];
-            string nb = matches[4];
+            string galaxyA = matches[1];
+            string nodeA = matches[2];
+            string galaxyB = matches[3];
+            string nodeB = matches[4];
 
-            cout << "Node A: " << nodeA << endl;
-            cout << "Node B: " << nodeB << endl;
-            cout << "a: " << na << endl;
-            cout << "B: " << nb << endl;
-            if (nodeA == nodeB)
+            cout << "galaxy A: " << galaxyA << endl;
+            cout << "galaxy B: " << galaxyB << endl;
+            cout << "node A: " << nodeA << endl;
+            cout << "node B: " << nodeB << endl;
+            if (galaxyA == galaxyB)
             {
-                Galaxy * targetGalaxy = universe.getGalaxyByName(nodeA);
-                targetGalaxy->findPath(na, nb); 
+                Galaxy * targetGalaxy = universe.getGalaxyByName(galaxyA);
+                targetGalaxy->findPath(nodeA, nodeB); 
             } else
             {
-                universe.findPath(nodeA, na, nodeB, nb);
+                universe.findPath(galaxyA, nodeA, galaxyB, nodeB);
             }
             
         }
@@ -163,4 +161,4 @@ int main()
     return 0;
 }
 
-// g++ --std=c++17 main.cpp edge.cpp Galaxy.cpp Node.cpp Universe.cpp ConcreteNode.cpp -o app
+// g++ --std=c++17 main.cpp edge.cpp Galaxy.cpp Node.cpp Universe.cpp -o app

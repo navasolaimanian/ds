@@ -2,6 +2,7 @@
 #include "Node.hpp"
 #include <iostream>
 #include <map>
+#include<algorithm>
 using namespace std;
 
 Galaxy::Galaxy(const string Name, int id) : name(Name), id(id) {}
@@ -11,7 +12,7 @@ void Galaxy::addNode(Node *node)
     nodes.push_back(node);
     for (const auto &g : nodes)
     {
-        cout << "node Name: " << g->getName() << endl;
+        cout << "nodes of galaxy: " << g->getName() << " ";
     }
 }
 int Galaxy::getNodeId(string node)
@@ -58,6 +59,7 @@ Node * Galaxy::getNodeByName(string name)
         }
     }
     cout << "node not found!" << endl;
+    return nullptr;
 }
 
 vector<string> Galaxy::findPath(string start, string end)
@@ -122,7 +124,7 @@ vector<string> Galaxy::findPath(string start, string end)
                     int cost = table[min] + i.getCost();
                     if (cost < table[getNode(i.getNode2ID())->getName()] || table[getNode(i.getNode2ID())->getName()] == -1)
                     {
-                        vector tmp = path[getNode(i.getNode1ID())->getName()];
+                        vector<string> tmp = path[getNode(i.getNode1ID())->getName()];
                         tmp.push_back(min);
                         path[getNode(i.getNode2ID())->getName()] = tmp;
                         table[getNode(i.getNode2ID())->getName()] = cost;
@@ -144,6 +146,7 @@ vector<string> Galaxy::findPath(string start, string end)
         }
         
     }
+    return {};
 }
 
 
@@ -206,7 +209,7 @@ vector<string> Galaxy::findPathToBG(string nodeName)
                 int cost = table[min] + i.getCost();
                 if (cost < table[getNode(i.getNode2ID())->getName()] || table[getNode(i.getNode2ID())->getName()] == -1)
                 {
-                    vector tmp = path[getNode(i.getNode1ID())->getName()];
+                    vector<string> tmp = path[getNode(i.getNode1ID())->getName()];
                     tmp.push_back(min);
                     path[getNode(i.getNode2ID())->getName()] = tmp;
                     table[getNode(i.getNode2ID())->getName()] = cost;
